@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------
+# Featured Services Section
+--------------------------------------------------------------*/
+.featured-services {
+  .service-item {
+    position: relative;
+    height: 100%;
+    margin-bottom: 20px;
+
+    .icon {
+      margin-right: 20px;
+  
+      i {
+        color: darken($primary, 25);
+        font-size: 48px;
+        transition: 0.3s;
+      }
+  
+    }
+  
+    &:hover .icon {
+      background: #fff;
+      i {
+        color: var(--color-primary);
+      }
+  
+    }
+  
+    .title {
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: var(--color-secondary);
+      transition: 0.3s;
+    }
+    
+    .description {
+      font-size: 15px;
+      color: lighten($secondary, 5);
+      margin-bottom: 10px;
+    }
+
+    .readmore {
+      display: flex;
+      align-items: center;
+      color: var(--color-secondary);
+      transition: 0.3s;
+      font-weight: 700;
+      font-size: 14px;
+      
+      i {
+        margin-left: 8px;
+      }
+    }
+    
+    &:hover {
+      .title, .readmore, .icon i {
+        color: var(--color-primary);
+      }
+    }
+
+  }
+
+}

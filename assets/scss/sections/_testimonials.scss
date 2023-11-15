@@ -1,0 +1,108 @@
+/*--------------------------------------------------------------
+# Testimonials Section
+--------------------------------------------------------------*/
+.testimonials {
+
+  padding: 80px 0;
+  background: url("../img/testimonials-bg.jpg") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba($secondary, 0.7);
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .testimonials-carousel, .testimonials-slider {
+    overflow: hidden;
+  }
+
+  .testimonial-item {
+    text-align: center;
+    color: #fff;
+
+    .testimonial-img {
+      width: 100px;
+      border-radius: 50%;
+      border: 6px solid rgba(255, 255, 255, .15);
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 10px 0 5px 0;
+      color: #fff;
+    }
+
+    h4 {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .6);
+      margin: 0 0 15px 0;
+    }
+
+    .stars {
+      margin-bottom: 15px;
+      i {
+        color: #ffc107;
+        margin: 0 1px;
+      }
+    }
+
+    .quote-icon-left, .quote-icon-right {
+      color: rgba(255, 255, 255, .6);
+      font-size: 26px;
+      line-height: 0;
+    }
+
+    .quote-icon-left {
+      display: inline-block;
+      left: -5px;
+      position: relative;
+    }
+
+    .quote-icon-right {
+      display: inline-block;
+      right: -5px;
+      position: relative;
+      top:10px;
+      transform: scale(-1, -1);
+    }
+
+    p {
+      font-style: italic;
+      margin: 0 auto 15px auto;
+    }
+
+  }
+
+  .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background-color: rgba(255, 255, 255, .4);
+      opacity: .5;
+    }
+    
+    .swiper-pagination-bullet-active {
+      background-color: #fff;
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .testimonial-item p {
+      width: 80%;
+    } 
+  }
+}

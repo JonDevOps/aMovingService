@@ -1,0 +1,41 @@
+/*--------------------------------------------------------------
+# Stats Counter Section
+--------------------------------------------------------------*/
+.stats-counter {
+  .stats-item {
+    padding: 30px;
+    width: 100%;
+
+    span {
+      font-size: 48px;
+      display: block;
+      color: var(--color-secondary);
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--color-primary);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+      font-family: var(--font-primary);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-secondary);
+    }
+  }
+}

@@ -1,0 +1,118 @@
+/*--------------------------------------------------------------
+# Get a Quote Section
+--------------------------------------------------------------*/
+.get-a-quote {
+
+  .quote-bg {
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .php-email-form {
+    background: lighten($secondary, 84);
+    padding: 40px;
+    height: 100%;
+
+    @media (max-width: 575px) {
+      padding: 20px;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 20px 0 0 0;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .error-message {
+      display: none;
+      color: #fff;
+      background: #df1529;
+      text-align: left;
+      padding: 15px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .sent-message {
+      display: none;
+      color: #fff;
+      background: #059652;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .loading {
+      display: none;
+      background: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 24px;
+  
+      &:before {
+        content: "";
+        display: inline-block;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        margin: 0 10px -6px 0;
+        border: 3px solid #059652;
+        border-top-color: #fff;
+        animation: animate-loading 1s linear infinite;
+      }
+  
+    }
+
+    input, textarea {
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 14px;
+      border-radius: 0;
+      &:focus {
+        border-color: var(--color-primary);
+      }
+    }
+
+    input {
+      padding: 12px 15px;
+    }
+
+    textarea {
+      padding: 12px 15px;
+    } 
+
+    button[type="submit"] {
+      background: var(--color-primary);
+      border: 0;
+      padding: 10px 30px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 4px;
+      &:hover {
+        background: rgba($primary, .8)
+      }
+    }
+  
+  }
+  
+  @keyframes animate-loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
