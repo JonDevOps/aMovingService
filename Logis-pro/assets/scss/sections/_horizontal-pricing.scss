@@ -1,0 +1,102 @@
+/*--------------------------------------------------------------
+# Horizontal Pricing Section
+--------------------------------------------------------------*/
+.horizontal-pricing {
+
+  .pricing-item {
+    box-shadow: 0 3px 20px -2px rgba(108, 117, 125,.15);
+    padding-bottom: 30px;
+    background: #fff;
+    height: 100%;
+    position: relative;
+  }
+
+  h3 {
+    font-weight: 700;
+    margin-bottom: 0;
+    font-size: 24px;
+    color: var(--color-secondary);
+  }
+
+  h4 {
+    font-size: 48px;
+    color: var(--color-primary);
+    font-weight: 400;
+    font-family: var(--font-primary);
+    margin-bottom: 25px;
+    text-align: center;
+    sup {
+      font-size: 28px;
+    }
+
+    span {
+      color: rgba( 108, 117, 125, .8);
+      font-size: 18px;
+    }
+  }
+
+  ul {
+    padding: 20px 0;
+    list-style: none;
+    color: #6c757d;
+    text-align: left;
+    line-height: 20px;
+
+    li {
+      padding-top: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    i {
+      color: #059652;
+      font-size: 24px;
+      padding-right: 3px;
+    }
+    .na {
+      color: rgba( 108, 117, 125, .5);
+      i {
+        color: rgba( 108, 117, 125, .5);
+      }
+      span {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .buy-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    transition: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    font-family: var(--font-primary);
+    &:hover {
+      background: lighten($primary, 10);
+      border-color: lighten($primary, 10);
+    }
+  }
+
+  .featured {
+    background: var(--color-primary);
+  
+    h3, h4, h4 span, ul, ul .na, ul i, ul .na i {
+      color: #fff;
+    }
+
+    .buy-btn {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: #fff;
+      &:hover {
+        background: #fff;
+        color: var(--color-primary);
+      }
+    }
+  }
+}

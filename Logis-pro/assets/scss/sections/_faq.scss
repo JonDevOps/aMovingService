@@ -1,0 +1,55 @@
+/*--------------------------------------------------------------
+# Frequently Asked Questions Section
+--------------------------------------------------------------*/
+.faq {
+  padding-top: 80px;
+  .accordion-item {
+    border: 0;
+    margin-bottom: 10px;
+  }
+
+  .accordion-collapse {
+    border: 0;
+  }
+  
+  .accordion-button {
+    padding: 15px 30px 20px 60px;
+    font-weight: 600;
+    border: 0;
+    font-size: 18px;
+    color: var(--color-default);
+    text-align: left;
+    background: rgba($secondary, .03);
+    border-radius: 5px;
+  }
+  
+  .accordion-button:focus {
+    box-shadow: none;
+  }
+  .accordion-button:not(.collapsed) {
+    color: var(--color-primary);
+    border-bottom: 0;
+    box-shadow: none;
+  }
+  
+  .question-icon {
+    position: absolute;
+    top: 14px;
+    left: 25px;
+    font-size: 20px;
+    color: var(--color-primary);
+  }
+
+  .accordion-button:after {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
+  .accordion-body {
+    padding: 0 30px 25px 60px;
+    border: 0;
+    background: rgba($secondary, .03);
+    border-radius: 5px;
+  }
+}

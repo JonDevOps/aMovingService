@@ -1,0 +1,96 @@
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  width: 100%;
+  min-height: 50vh;
+  background-color: var(--color-secondary);
+  background-image: url("../img/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 120px 0 60px 0;
+  color: rgba(#fff, .8);
+
+  h2 {
+    margin-bottom: 20px;
+    padding: 0;
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    @media (max-width: 575px) {
+      font-size: 30px;
+    }
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
+  form {
+		background: #fff;
+		padding: 10px;
+		border-radius: 10px;
+		.form-control {
+			padding-top: 18px;
+			padding-bottom: 18px;
+			padding-left: 20px;
+			padding-right: 20px;
+			border: none;
+			margin-right: 10px;
+			border: none!important;
+			background: none!important;
+
+			&:hover, &:focus {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      padding: 15px 30px;
+      &:hover {
+        background-color: lighten($primary, 5);
+      }
+    }
+  }
+
+  .stats-item {
+    padding: 30px;
+    width: 100%;
+
+    span {
+      font-size: 32px;
+      display: block;
+      font-weight: 700;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 3px;
+        background: var(--color-primary);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+      font-family: var(--font-primary);
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+
+}

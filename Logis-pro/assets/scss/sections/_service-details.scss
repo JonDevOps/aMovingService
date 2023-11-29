@@ -1,0 +1,66 @@
+/*--------------------------------------------------------------
+# Service Details Section
+--------------------------------------------------------------*/
+.service-details {
+
+  .services-list {
+    padding: 10px 30px;
+    border: 1px solid lighten($secondary, 76);
+    margin-bottom: 20px;
+
+    a {
+      display: block;
+      line-height: 1;
+      padding: 8px 0 8px 15px;
+      border-left: 3px solid lighten($default, 76);
+      margin: 20px 0;
+      color: var(--color-secondary);
+      transition: 0.3s;
+      &.active {
+        font-weight: 700;
+        border-color: var(--color-primary);
+      }
+      &:hover {
+        border-color: var(--color-primary);
+      }
+    }
+
+  }
+
+  .services-img {
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-secondary);
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-secondary);
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+    li {
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+    }
+    i {
+      font-size: 20px;
+      margin-right: 8px;
+      color: var(--color-primary);
+    }
+  } 
+  
+}

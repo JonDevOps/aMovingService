@@ -1,0 +1,123 @@
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact {
+  .info-item {
+
+    & + .info-item {
+      margin-top: 40px;
+    }
+
+    i {
+      font-size: 20px;
+      background: var(--color-primary);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      transition: all 0.3s ease-in-out;
+      margin-right: 15px;
+    }
+
+    h4 {
+      padding: 0;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--color-secondary);
+    }
+
+    p {
+      padding: 0;
+      margin-bottom: 0;
+      font-size: 14px;
+      color: rgba($secondary, .8);
+    }
+  }
+
+
+  .php-email-form {
+    width: 100%;
+    background: #fff;
+
+    .form-group {
+      padding-bottom: 8px;
+    }
+    
+    .error-message {
+      display: none;
+      color: #fff;
+      background: #df1529;
+      text-align: left;
+      padding: 15px;
+      font-weight: 600;
+      & br + br {
+        margin-top: 25px;
+      }
+    }
+    
+    .sent-message {
+      display: none;
+      color: #fff;
+      background: #059652;
+      text-align: center;
+      padding: 15px;
+      font-weight: 600;
+    }
+  
+    .loading {
+      display: none;
+      background: #fff;
+      text-align: center;
+      padding: 15px;
+  
+      &:before {
+        content: "";
+        display: inline-block;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        margin: 0 10px -6px 0;
+        border: 3px solid #059652;
+        border-top-color: #fff;
+        animation: animate-loading 1s linear infinite;
+      }
+  
+    }
+
+    input, textarea {
+      border-radius: 4px;
+      box-shadow: none;
+      font-size: 14px;
+    }
+
+    input {
+      height: 44px;
+    }
+
+    textarea {
+      padding: 10px 12px;
+    }
+
+    button[type="submit"] {
+      background: var(--color-primary);
+      border: 0;
+      padding: 10px 35px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 5px;
+      &:hover {
+        background: rgba($primary, .8);
+      }
+    }
+  
+  }
+
+  @keyframes animate-loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}

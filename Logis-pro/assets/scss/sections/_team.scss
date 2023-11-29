@@ -1,0 +1,57 @@
+/*--------------------------------------------------------------
+# Our Team Section
+--------------------------------------------------------------*/
+.team {
+  .member {
+    text-align: center;
+    margin-bottom: 20px;
+    background: #fff;
+    border: 1px solid rgba($secondary, .15);
+    
+    img {
+      margin: -1px -1px 30px -1px;
+    }
+
+    .member-content {
+      padding: 0 20px 30px 20px;
+    }
+
+
+    h4 {
+      font-weight: 700;
+      margin-bottom: 2px;
+      font-size: 18px;
+    }
+
+    span {
+      font-style: italic;
+      display: block;
+      font-size: 13px;
+      color: #6c757d;
+    }
+
+    p {
+      padding-top: 10px;
+      font-size: 14px;
+      font-style: italic;
+      color: #6c757d;
+    }
+
+    .social {
+      margin-top: 15px;
+      a {
+        color: rgba($secondary, .5);
+        transition: 0.3s;
+        &:hover {
+          color: var(--color-primary);
+        }
+
+      }
+
+      i {
+        font-size: 18px;
+        margin: 0 2px;
+      }
+    }
+  }
+}
