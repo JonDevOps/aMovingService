@@ -1896,6 +1896,46 @@ section {
   color: #fff;
 }
 
+/*
+start
+*/
+.footer .footer-contact {
+  margin-bottom: 30px;
+}
+
+.footer .footer-contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-contact ul i {
+  padding-right: 2px;
+  color: rgba(13, 66, 255, 0.8);
+  font-size: 12px;
+  line-height: 0;
+}
+
+.footer .footer-contact ul li {
+  padding: 10px 0;
+  align-items: center;
+}
+
+.footer .footer-contact ul li:first-child {
+  padding-top: 0;
+}
+
+.footer .footer-contact ul a {
+  color: rgba(255, 255, 255, 0.6);
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+.footer .footer-contact ul a:hover {
+  color: #fff;
+}
+/*Finish*/
 .footer .footer-contact p {
   line-height: 26px;
 }
