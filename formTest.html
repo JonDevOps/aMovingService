@@ -1,3 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<!--Aksthis question to get better code but ask the question to chatgpt in a better way. im fixing the way to ask but my laptops dying
+Write a form for my html moving company website that 
+
+-Takes an input for the customers starting location and final location, 
+ 
+ -for every location ask the customer if its a load or unload
+ 
+ -for every location ask how many bedrooms is at each location. 
+  -Every bedroom for a customer that chooses load is an additional 30 minutes charge added to the equation.
+  
+  -every hour is $150
+   
+  -Add up the time it will take to complete the job and write the program. 
+   -Every jobbs quoted hours are 3 hours minimum. So if the time it will take is less than 3 hours put a minimum quote of at least 3 hoursIf the job will take less than 3 hours, instead of showing the user the amount of hours it will actually take if the calculation is less than 3 hours
+
+-calculates the amount of miles from the starting location to the final location
+-calculates how much time it should take to drive from the starting location to the final location
+-Give me an example with the google maps distance matrrix api
+
+
+-also add a button  under the starting location input that allows users to  add an up to 5 additional destinations and will calculate the distance between each destination going chronologically starting with the starting destination and then next to the 1st additional location then to the second, 3rd 4th,and 5th and then finally ending at the final destination
+-Also ask how many bedrooms at each location additional location, 
+-ask if each additional location is a load or unload
+-If its a load add an additional 30 minutes to the total cost for each additional room at each additional location -if its an unload just add an extra hour
+
+
+
+Put the add another locaton button between  the final destination input and starting destination input. 
+Also dont forget to put a load or unload dropdown on the final destination input as well as ask how many bedroom on it and every other location input.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add all these questions into one
+-->
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving Cost Estimator with Multiple Locations</title>
+<script>
+// Initial count for additional locations
+var locationCount = 1;
+
+// Function to add more location fields
+function addLocation() {
+    if (locationCount < 5) {
+        var newFieldset = document.createElement('fieldset');
+        newFieldset.innerHTML = '<legend>Location ' + locationCount + '</legend>' +
+                                '<label for="location' + locationCount + '">Address:</label>' +
+                                '<input type="text" id="location' + locationCount + '" name="location' + locationCount + '" required>' +
+                                '<br><br>' +
+                                '<label for="bedrooms' + locationCount + '">Number of Bedrooms:</label>' +
+                                '<input type="number" id="bedrooms' + locationCount + '" name="bedrooms' + locationCount + '" min="0" required>' +
+                                '<br><br>' +
+                                '<label for="loadUnload' + locationCount + '">Load/Unload:</label>' +
+                                '<select id="loadUnload' + locationCount + '" name="loadUnload' + locationCount + '">' +
+                                '<option value="load">Load</option>' +
+                                '<option value="unload">Unload</option>' +
+                                '</select>';
+        var form = document.getElementById('movingForm');
+        form.insertBefore(newFieldset, document.getElementById('addLocBtn'));
+        locationCount++;
+    } else {
+        alert('You can only add up to 4 additional locations.');
+    }
+}
+
+// Function to calculate total cost
+function calculateCost() {
+    // Constants
+    const costPerHour = 60;
+    const minChargeHours = 2;
+    const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+
+    // Get user input
+    var startingLocation = document.getElementById('startingLocation').value;
+    var finalLocation = document.getElementById('finalLocation').value;
+    var bedrooms = parseInt(document.getElementById('bedrooms').value);
+
+    // Calculate hours for bedrooms
+    var hoursForBedrooms = Math.max(bedrooms, minChargeHours);
+
+    // Initialize total travel time and additional time for bedrooms
+    var totalTravelTimeSeconds = 0;
+    var additionalTimeMinutes = 0;
+
+    // Build the API request URL for the final location
+    var locations = [finalLocation];
+    for (var i = 1; i < locationCount; i++) {
+        locations.push(document.getElementById('location' + i).value);
+        additionalTimeMinutes += parseInt(document.getElementById('bedrooms' + i).value) * 30;
+    }
+
+    var apiUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + encodeURIComponent(startingLocation) +
+                 '&destinations=' + encodeURIComponent(locations.join('|')) +
+                 '&key=' + apiKey;
+
+    // Make the API request
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Extract distance and duration for the final location
+            var element = data.rows[0].elements[0];
+            totalTravelTimeSeconds += element.duration.value;
+            document.getElementById('results').innerHTML = 'Final Location: ' +
+                                                           element.distance.text + ', ' +
+                                                           element.duration.text + '<br>';
+
+            // Calculate total hours including additional time for bedrooms
+            var totalHours = hoursForBedrooms + Math.ceil((totalTravelTimeSeconds / 3600) + (additionalTimeMinutes / 60));
+            var totalCost = totalHours * costPerHour;
+
+            // Display the total cost
+            document.getElementById('results').innerHTML += '<br>Total Cost: $' + totalCost;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Prevent form from submitting
+function handleForm(event) { event.preventDefault(); }
+</script>
+</head>
+<body>
+
+<h1>Moving Cost Estimator with Multiple Locations</h1>
+
+<form id="movingForm" onsubmit="handleForm(event); calculateCost();">
+    <label for="startingLocation">Starting Location:</label>
+    <input type="text" id="startingLocation" name="startingLocation" required>
+    <br><br>
+    <label for="loadUnload">Load/Unload:</label>
+    <select id="loadUnload" name="loadUnload">
+        <option value="load">Load</option>
+        <option value="unload">Unload</option>
+    </select>
+    <br><br>
+    <label for="bedrooms">Number of Bedrooms:</label>
+    <input type="number" id="bedrooms" name="bedrooms" min="1" required>
+    <br><br>
+    <label for="finalLocation">Final Location:</label>
+    <input type="text" id="finalLocation" name="finalLocation" required>
+    <br><br>
+    <button type="button" id="addLocBtn" onclick="addLocation()">Add Another Location</button>
+    <br><br>
+    <input type="submit" value="Calculate Cost">
+</form>
+
+<div id="results"></div>
+
+</body>
+</html>
 
 
 
@@ -20,8 +193,8 @@
 
 
 
+<!--kinda what i wanted-->
 
-<!--This is kinda what i wanted-->
 
 
 <!DOCTYPE html>
